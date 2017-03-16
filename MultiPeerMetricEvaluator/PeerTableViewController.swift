@@ -28,24 +28,22 @@ class PeerTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return ColorServiceManager.getPeers().count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PeerTableViewCell", for: indexPath) as? PeerTableViewCell else { fatalError("The dequeued cell is not an instance of PeerTableViewCell") }
+        let peer = ColorServiceManager.getPeers()[indexPath.row]
+        cell.peerLabel.text = "Device: \(peer.peerID.displayName)"
+        cell.rttLabel.text = "RTT: \(peer.rtt)"
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

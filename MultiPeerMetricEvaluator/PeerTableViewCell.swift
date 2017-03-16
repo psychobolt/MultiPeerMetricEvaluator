@@ -10,6 +10,9 @@ import UIKit
 
 class PeerTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var peerLabel: UILabel!
+    @IBOutlet weak var rttLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
